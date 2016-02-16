@@ -28,8 +28,7 @@ public class Main {
         for(Balloon each : things) {
             // Don't print elements that are not defined
             if (each != null)
-                System.out.printf("size %d inches, color is %s%n",
-                        each.getSize(), each.getColor());
+                System.out.println(each);
         }
     }
 }
@@ -37,12 +36,14 @@ public class Main {
 class Balloon {
     private int size;
     private String color;
+    boolean inflated;
     private static int quantity = 0;
 
     // Default constructor
     Balloon() {
         size = 10;
         color = "orange";
+        inflated = false;
         quantity++;
     }
 
@@ -71,5 +72,25 @@ class Balloon {
     public static void destroy(int i, Balloon[] arg) {
         quantity--;
         arg[i] = null;
+    }
+
+    // Return the inflation status
+    public boolean isInflated() {
+        return inflated;
+    }
+
+    // Set the inflation status
+    public void setInflated(boolean arg) {
+        inflated = arg;
+    }
+    // Provide a toString method
+
+    @Override
+    public String toString() {
+        return "Balloon{" +
+                "size = " + size +
+                ", color = '" + color + '\'' +
+                ", " + (isInflated() ? "Inflated" : "Not Inflated") +
+                '}';
     }
 }
