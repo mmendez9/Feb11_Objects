@@ -69,6 +69,7 @@ class Balloon {
         return quantity;
     }
 
+    // Balloons destroyed
     public static void destroy(int i, Balloon[] arg) {
         quantity--;
         arg[i] = null;
@@ -83,8 +84,8 @@ class Balloon {
     public void setInflated(boolean arg) {
         inflated = arg;
     }
-    // Provide a toString method
 
+    // Provide a toString method
     @Override
     public String toString() {
         return "Balloon{" +
